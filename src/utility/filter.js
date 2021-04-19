@@ -1,8 +1,4 @@
-const filterByNumberOfLanguages = number => country => {
-  console.log(number);
-  console.log(country);
-  return (country.languages.length === Number(number));
-};
+const filterByNumberOfLanguages = number => country => (country.languages.length === Number(number));
 const filterBySubregion = subregion => country => (country.subregion === subregion);
 
 const filterSwitch = (type, value) => {

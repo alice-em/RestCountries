@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, Grid, Toolbar, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import FilterFields from '../fields/FilterFields';
@@ -22,8 +22,10 @@ const OptionsBar = () => {
         <Typography className={classes.title} variant="h6">
           FairyGodBoss Countries Demo
         </Typography>
-        <SortKeySelect />
-        <FilterFields />
+        <Grid container spacing={1}>
+          <SortKeySelect />
+          <FilterFields />
+        </Grid>
       </Toolbar>
     </AppBar>
   );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField } from '@material-ui/core';
+import { Grid, TextField } from '@material-ui/core';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { useOptionsContext } from '../context/OptionsProvider';
@@ -20,13 +20,15 @@ const LanguagesFilterInput = () => {
     });
 
   return (
-    <TextField
-      className={classes.root}
-      label="Number of languages"
-      numeric="true"
-      onChange={onChange}
-      value={options.languages}
-    />
+    <Grid item sm={3} xs={12}>
+      <TextField
+        className={classes.root}
+        label="Number of languages"
+        numeric="true"
+        onChange={onChange}
+        value={options.languages}
+      />
+    </Grid>
   );
 };
 

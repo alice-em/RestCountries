@@ -3,6 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   FormControl,
+  Grid,
   InputLabel,
   MenuItem,
   Select,
@@ -19,27 +20,30 @@ const CustomSelect = ({ id, label, options, onChange, value }) => {
   const classes = useStyles();
 
   return (
-    <FormControl className={classes.root}>
-      <InputLabel htmlFor={id}>{label}</InputLabel>
-      <Select
-        onChange={onChange}
-        value={value}
-      >
-        {options.map(({ text, value }) => (
-          <MenuItem key={text} value={value}>{text}</MenuItem>
-        ))}
-      </Select>
-    </FormControl>
+    <Grid item sm={3} xs={12}>
+      <FormControl className={classes.root}>
+        <InputLabel htmlFor={id}>{label}</InputLabel>
+        <Select onChange={onChange} value={value}>
+          {options.map(({ text, value }) => (
+            <MenuItem key={text} value={value}>
+              {text}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+    </Grid>
   );
 };
 
 CustomSelect.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  options: PropTypes.arrayOf(PropTypes.shape({
-    text: PropTypes.string,
-    value: PropTypes.string,
-  })),
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      value: PropTypes.string,
+    }),
+  ),
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
 };
